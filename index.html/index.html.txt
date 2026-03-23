@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Code to Output Converter Pro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #74ebd5, #ACB6E5);
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: white;
+    }
+    .container {
+      display: flex;
+      flex-direction: row;
+      height: calc(100vh - 80px);
+    }
+    .editor, .output {
+      flex: 1;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .editor {
+      background: #fdfdfd;
+      border-right: 2px solid #ccc;
+    }
+    textarea {
+      width: 100%;
+      height: 65%;
+      font-family: monospace;
+      font-size: 14px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: none;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #023e8a;
+    }
+    iframe {
+      width: 100%;
+      height: 80%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: white;
+    }
+    .examples {
+      margin-top: 20px;
+    }
+    .examples h3 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .examples img {
+      width: 100%;
+      border-radius: 5px;
+      margin-top: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>⚡ Code to Output Converter Pro ⚡</h1>
+    <p>unlock your all desires with end-to-end encrypted platform </p>
+  </header>
+  
+  <div class="container">
+    <div class="editor">
+      <h2>Enter codes </h2>
+      <textarea id="codeInput" placeholder="Type HTML, CSS, or JavaScript here..."></textarea>
+      <button onclick="runCode()">▶ Run Code</button>
+    </div>
+    
+    <div class="output">
+      <h2>Output</h2>
+      <iframe id="outputFrame"></iframe>
+    </div>
+  </div>
+  
+  <script>
+    function runCode() {
+      const code = document.getElementById("codeInput").value;
+      const iframe = document.getElementById("outputFrame");
+      iframe.contentDocument.open();
+      iframe.contentDocument.write(code);
+      iframe.contentDocument.close();
+    }
+  </script>
+</body>
+</html>
